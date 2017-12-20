@@ -2,4 +2,5 @@
     <string name="app_name">PizzaTime</string>
     <string name="logo">Pizza Time Logo</string>
     <string name="tagline">...and every moment - is a great time for a pizza...</string>
+    <string name="s_pizza">Secret Pizza</string>
 </resources>

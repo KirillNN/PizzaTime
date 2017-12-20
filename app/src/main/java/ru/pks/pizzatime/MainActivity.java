@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 public class MainActivity extends Activity {
+    private int order, bonus, total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

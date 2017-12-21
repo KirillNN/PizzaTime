@@ -9,7 +9,8 @@
     <string name="total">Total: </string>
     <string name="plus">Plus</string>
     <string name="minus">Minus</string>
-    <string name="product_name">Raphael PIZZA</string>
+    <string name="raphael_pizza">Raphael PIZZA</string>
+    <string name="splinter_burger">Splinter Burger</string>
     <string name="offer_3_1">Take 3 and get 1 for free</string>
     <string name="offer">Special offer</string>
 </resources>

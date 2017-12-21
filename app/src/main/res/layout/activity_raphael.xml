@@ -2,10 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0f7a47"
-    tools:context="ru.pks.pizzatime.MainActivity"
+    tools:context="ru.pks.pizzatime.RaphaelActivity"
     tools:layout_editor_absoluteY="73dp">
 
     <ImageView
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/product_name"
+        android:text="@string/raphael_pizza"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/s_pizza"
-        android:src="@drawable/s_pizza_150"
+        android:src="@drawable/rafael_pizza_150"
         app:layout_constraintEnd_toStartOf="@+id/minus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/plus"

@@ -7,16 +7,22 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    private int item, itemBonus, itemTotal;
-    TextView itemView, itemBonusView, itemTotalView;
-    ImageButton plus, minus, offer;
+public class RaphaelActivity extends AppCompatActivity {
+    private int item;
+    private int itemBonus;
+    private int itemTotal;
+    private TextView itemView;
+    private TextView itemBonusView;
+    private TextView itemTotalView;
+    private ImageButton plus;
+    private ImageButton minus;
+    private ImageButton offer;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_raphael);
 
         item = 0;
         itemBonus = 0;
@@ -55,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
-    void itemPlus() {
+    private void itemPlus() {
         item++;
         itemBonus();
         itemTotal = item + itemBonus;
 
     }
 
-    void itemMinus() {
+    private void itemMinus() {
         if (item > 0) {
             item--;
             itemBonus();
@@ -75,11 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void itemBonus() {
+    private void itemBonus() {
         itemBonus = (int) Math.ceil(item / 3);
     }
 
-    void updateUI() {
+    private void updateUI() {
         itemView.setText(getString(R.string.you) + item);
         itemBonusView.setText(getString(R.string.bonus) + itemBonus);
         itemTotalView.setText(getString(R.string.total) + itemTotal);

@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
+    private String order;
+
     ListView itemView;
 
 
@@ -17,6 +19,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        order = "";
 
         final String[] itemNames = {
                 getString(R.string.raphael_pizza),
@@ -31,11 +35,27 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
-                        startActivity(intent);
+                        raphaelStarted();
                         break;
                 }
             }
         });
+    }
+
+    protected void raphaelStarted() {
+        Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
+        String orderReturn = data.getStringExtra("orderReturn");
+    }
+
+    public void updateUI() {
+
     }
 }

@@ -86,10 +86,12 @@
 
         <Button
             android:id="@+id/sendOrder"
+            style="@android:style/Widget.Holo.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
+            android:background="@color/time_pizza_app_color"
             android:text="@string/send_order"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

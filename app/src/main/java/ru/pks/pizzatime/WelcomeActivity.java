@@ -16,7 +16,6 @@ public class WelcomeActivity extends AppCompatActivity {
     ListView itemView;
     Button sendOrder;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +41,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+
         sendOrder = findViewById(R.id.sendOrder);
         sendOrder.setOnClickListener(new View.OnClickListener() {
             @Override

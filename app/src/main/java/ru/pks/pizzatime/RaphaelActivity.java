@@ -3,6 +3,7 @@ package ru.pks.pizzatime;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ public class RaphaelActivity extends AppCompatActivity {
     private ImageButton plus;
     private ImageButton minus;
     private ImageButton offer;
+    private Button addToOrder;
 
 
     @Override
@@ -55,6 +57,14 @@ public class RaphaelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 itemMinus();
                 updateUI();
+            }
+        });
+
+        addToOrder = findViewById(R.id.addToOrder);
+        addToOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
             }
         });
 

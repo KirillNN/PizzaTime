@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private String order;
 
     ListView itemView;
+    Button sendOrder;
 
 
     @Override
@@ -20,7 +22,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        order = "";
+        order = getString(R.string.order_text_view);
 
         final String[] itemNames = {
                 getString(R.string.raphael_pizza),
@@ -40,6 +42,17 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+        sendOrder = findViewById(R.id.sendOrder);
+        sendOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mail = new Intent(Intent.ACTION_SEND);
+                mail.setType("text/plain");
+                mail.putExtra(Intent.EXTRA_EMAIL, order);
+                Intent chosenIntent = Intent.createChooser(mail, getString(R.string.send_order));
+                startActivity(chosenIntent);
+            }
+        });
     }
 
     protected void raphaelStarted() {
@@ -52,7 +65,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (data == null) {
             return;
         }
-        String orderReturn = data.getStringExtra("orderReturn");
+        String orderReturn = data.getStringExtra("orderRafael");
     }
 
     public void updateUI() {

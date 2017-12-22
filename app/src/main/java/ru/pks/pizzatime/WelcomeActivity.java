@@ -17,6 +17,18 @@ public class WelcomeActivity extends AppCompatActivity {
 
         final String[] itemNames = {
                 getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
+                getString(R.string.raphael_pizza),
                 getString(R.string.splinter_burger)
         };
 

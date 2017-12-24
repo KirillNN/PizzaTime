@@ -71,15 +71,13 @@
         </android.support.v4.widget.NestedScrollView>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/orderView"
             android:layout_width="0dp"
-            android:layout_height="323dp"
-            android:layout_marginBottom="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/loren_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/order_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
@@ -90,11 +88,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:background="@color/time_pizza_app_color"
             android:text="@string/send_order"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/orderView" />
 
     </android.support.constraint.ConstraintLayout>
 

@@ -9,7 +9,7 @@
     <string name="total">Total: </string>
     <string name="plus">Plus</string>
     <string name="minus">Minus</string>
-    <string name="order_text_view">Tou order is: /n</string>
+    <string name="order_text_view">You order is:</string>
     <string name="send_order">Send order</string>
     <string name="add_to_order">Add to order</string>
     <string name="e_mail">order@pizza-time.com</string>

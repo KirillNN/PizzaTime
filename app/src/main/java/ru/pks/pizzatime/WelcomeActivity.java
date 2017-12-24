@@ -8,12 +8,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private String order;
+    private String orderFull;
 
     ListView itemView;
+    TextView orderView;
     Button sendOrder;
 
     @Override
@@ -46,13 +49,20 @@ public class WelcomeActivity extends AppCompatActivity {
         sendOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String mailTo = getString(R.string.e_mail);
                 Intent mail = new Intent(Intent.ACTION_SEND);
                 mail.setType("text/plain");
-                mail.putExtra(Intent.EXTRA_EMAIL, order);
+                mail.putExtra(Intent.EXTRA_TEXT, order);
+                mail.putExtra(Intent.EXTRA_EMAIL, "user@server.com");
+                mail.putExtra(Intent.EXTRA_BCC, "user@server.com");
+                mail.putExtra(Intent.EXTRA_SUBJECT, "Order");
                 Intent chosenIntent = Intent.createChooser(mail, getString(R.string.send_order));
                 startActivity(chosenIntent);
             }
         });
+
+        orderView = findViewById(R.id.orderView);
+        orderView.setText(order);
     }
 
     protected void raphaelStarted() {

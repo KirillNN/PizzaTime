@@ -49,12 +49,12 @@ public class WelcomeActivity extends AppCompatActivity {
         sendOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mailTo = getString(R.string.e_mail);
                 Intent mail = new Intent(Intent.ACTION_SEND);
                 mail.setType("text/plain");
-                mail.putExtra(Intent.EXTRA_TEXT, order);
+                mail.putExtra(Intent.EXTRA_TEXT, orderFull);
                 mail.putExtra(Intent.EXTRA_EMAIL, "user@server.com");
                 mail.putExtra(Intent.EXTRA_BCC, "user@server.com");
+                mail.putExtra(Intent.EXTRA_CC, "user@server.com");
                 mail.putExtra(Intent.EXTRA_SUBJECT, "Order");
                 Intent chosenIntent = Intent.createChooser(mail, getString(R.string.send_order));
                 startActivity(chosenIntent);
@@ -75,10 +75,11 @@ public class WelcomeActivity extends AppCompatActivity {
         if (data == null) {
             return;
         }
-        String orderReturn = data.getStringExtra("orderRafael");
+        orderFull = data.getStringExtra("orderRafael");
+        updateUI();
     }
 
     public void updateUI() {
-
+        orderView.setText(orderFull);
     }
 }

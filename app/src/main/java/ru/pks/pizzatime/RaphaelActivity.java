@@ -1,5 +1,6 @@
 package ru.pks.pizzatime;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,7 @@ public class RaphaelActivity extends AppCompatActivity {
     private ImageButton minus;
     private ImageButton offer;
     private Button addToOrder;
+    private String orderRafael;
 
 
     @Override
@@ -64,7 +66,10 @@ public class RaphaelActivity extends AppCompatActivity {
         addToOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent orderReturn = new Intent();
+                orderReturn.putExtra("orderRafael", orderRafael);
+                setResult(RESULT_OK, orderReturn);
+                finish();
             }
         });
 
@@ -99,5 +104,6 @@ public class RaphaelActivity extends AppCompatActivity {
         itemView.setText(getString(R.string.you) + item);
         itemBonusView.setText(getString(R.string.bonus) + itemBonus);
         itemTotalView.setText(getString(R.string.total) + itemTotal);
+        orderRafael = getString(R.string.raphael_pizza) + ": " + itemTotal + " (" + itemBonus + " "+ getString(R.string.free) + ")";
     }
 }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RaphaelActivity extends AppCompatActivity {
+
+    public static final String ORDER_RAFAEL = "orderRafael";
     private int item;
     private int itemBonus;
     private int itemTotal;
@@ -28,6 +30,36 @@ public class RaphaelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_raphael);
 
+
+
+        initUI();
+    }
+
+    private void itemPlus() {
+        item++;
+        itemBonus();
+        itemTotal = item + itemBonus;
+
+    }
+
+    private void itemMinus() {
+        if (item > 0) {
+            item--;
+            itemBonus();
+            itemTotal = item + itemBonus;
+        } else {
+            item = 0;
+            itemBonus = 0;
+            itemTotal = 0;
+        }
+
+    }
+
+    private void itemBonus() {
+        itemBonus = (int) Math.ceil(item / 3);
+    }
+
+    private void initUI() {
         item = 0;
         itemBonus = 0;
         itemTotal = 0;
@@ -67,37 +99,11 @@ public class RaphaelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent orderReturn = new Intent();
-                orderReturn.putExtra("orderRafael", orderRafael);
+                orderReturn.putExtra(ORDER_RAFAEL, orderRafael);
                 setResult(RESULT_OK, orderReturn);
                 finish();
             }
         });
-
-        updateUI();
-    }
-
-    private void itemPlus() {
-        item++;
-        itemBonus();
-        itemTotal = item + itemBonus;
-
-    }
-
-    private void itemMinus() {
-        if (item > 0) {
-            item--;
-            itemBonus();
-            itemTotal = item + itemBonus;
-        } else {
-            item = 0;
-            itemBonus = 0;
-            itemTotal = 0;
-        }
-
-    }
-
-    private void itemBonus() {
-        itemBonus = (int) Math.ceil(item / 3);
     }
 
     private void updateUI() {

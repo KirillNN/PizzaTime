@@ -1,16 +1,21 @@
 package ru.pks.pizzatime;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WelcomeActivity extends AppCompatActivity {
+
+    private static final int REQUEST = 1;
 
     private String order;
     private String orderFull;
@@ -24,6 +29,23 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        initUI();
+    }
+
+    protected void raphaelStarted() {
+        Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
+        startActivityForResult(intent, REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            orderFull = data.getStringExtra(RaphaelActivity.ORDER_RAFAEL);
+            updateUI();
+        }
+    }
+
+    private void initUI() {
         order = getString(R.string.order_text_view);
 
         final String[] itemNames = {
@@ -41,6 +63,8 @@ public class WelcomeActivity extends AppCompatActivity {
                     case 0:
                         raphaelStarted();
                         break;
+                    default:
+                        inDevelop();
                 }
             }
         });
@@ -65,21 +89,13 @@ public class WelcomeActivity extends AppCompatActivity {
         orderView.setText(order);
     }
 
-    protected void raphaelStarted() {
-        Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
-        startActivityForResult(intent, 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) {
-            return;
-        }
-        orderFull = data.getStringExtra("orderRafael");
-        updateUI();
-    }
-
     public void updateUI() {
         orderView.setText(orderFull);
+    }
+
+    private void inDevelop() {
+        Toast inDevelop = Toast.makeText(getApplicationContext(), getString(R.string.in_develop), Toast.LENGTH_LONG);
+        inDevelop.setGravity(Gravity.CENTER, 0, 0);
+        inDevelop.show();
     }
 }

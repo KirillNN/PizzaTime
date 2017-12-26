@@ -7,6 +7,7 @@
     <string name="you">You: </string>
     <string name="bonus">Bonus: </string>
     <string name="total">Total: </string>
+    <string name="in_develop">IN DEVELOP</string>
     <string name="plus">Plus</string>
     <string name="minus">Minus</string>
     <string name="order_text_view">You order is:</string>

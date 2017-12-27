@@ -79,6 +79,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 mail.putExtra(Intent.EXTRA_EMAIL, "user@server.com");
                 mail.putExtra(Intent.EXTRA_BCC, "user@server.com");
                 mail.putExtra(Intent.EXTRA_CC, "user@server.com");
+                //TODO E-mail
                 mail.putExtra(Intent.EXTRA_SUBJECT, "Order");
                 Intent chosenIntent = Intent.createChooser(mail, getString(R.string.send_order));
                 startActivity(chosenIntent);

@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class WelcomeActivity extends AppCompatActivity {
 
     private static final int REQUEST = 1;
+    private static final String TAG = "WelcomeActivity";
 
     private String order;
     private String orderFull;

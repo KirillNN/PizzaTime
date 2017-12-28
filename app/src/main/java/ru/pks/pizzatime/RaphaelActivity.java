@@ -29,7 +29,6 @@ public class RaphaelActivity extends AppCompatActivity {
     private Button addToOrder;
     private String orderRafael;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +98,6 @@ public class RaphaelActivity extends AppCompatActivity {
         item++;
         itemBonus();
         itemTotal = item + itemBonus;
-
     }
 
     private void itemMinus() {
@@ -112,7 +110,6 @@ public class RaphaelActivity extends AppCompatActivity {
             itemBonus = 0;
             itemTotal = 0;
         }
-
     }
 
     private void itemBonus() {

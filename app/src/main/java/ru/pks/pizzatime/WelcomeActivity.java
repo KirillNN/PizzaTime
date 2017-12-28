@@ -32,6 +32,36 @@ public class WelcomeActivity extends AppCompatActivity {
         initUI();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     protected void raphaelStarted() {
         Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
         startActivityForResult(intent, REQUEST);

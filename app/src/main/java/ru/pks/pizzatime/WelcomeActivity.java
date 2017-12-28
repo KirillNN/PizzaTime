@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private static final int REQUEST = 1;
     private static final String TAG = "WelcomeActivity";
+    private static final String ORDER_FULL = "order_full";
 
     private String order;
     private String orderFull;
@@ -30,42 +32,58 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        Log.d(TAG, "onCreate Started");
+
+        if (savedInstanceState != null) {
+            orderFull = savedInstanceState.getString(ORDER_FULL);
+        } else {
+            orderFull = getString(R.string.empty);
+        }
+
         initUI();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState Started");
+        outState.putString(ORDER_FULL, orderFull);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d(TAG, "onStart Started");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        Log.d(TAG, "onRestart Started");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume Started");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        Log.d(TAG, "onPause Started");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        Log.d(TAG, "onStop Started");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(TAG, "onDestroy Started");
     }
 
     protected void raphaelStarted() {
@@ -123,11 +141,15 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         orderView = findViewById(R.id.orderView);
-        orderView.setText(order);
+        updateUI();
     }
 
     public void updateUI() {
-        orderView.setText(orderFull);
+        if (orderFull.equals(getString(R.string.empty))) {
+            orderView.setText(order);
+        } else {
+            orderView.setText(orderFull);
+        }
     }
 
     private void inDevelop() {

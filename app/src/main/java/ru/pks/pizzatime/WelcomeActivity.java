@@ -33,13 +33,18 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onRestart() {
+        super.onRestart();
     }
 
     @Override

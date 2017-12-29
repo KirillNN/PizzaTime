@@ -65,7 +65,8 @@
             android:contentDescription="@string/plus"
             android:src="@drawable/ic_teenage_mutant_ninja_turtles_48"
             app:layout_constraintStart_toEndOf="@+id/s_pizza"
-            app:layout_constraintTop_toTopOf="@+id/productName" />
+            app:layout_constraintTop_toTopOf="@+id/productName"
+            android:layout_marginLeft="32dp" />
 
         <ImageView
             android:id="@+id/s_pizza"

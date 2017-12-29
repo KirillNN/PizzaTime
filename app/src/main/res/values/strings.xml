@@ -1,26 +1,29 @@
 <resources>
+    <!--App-->
     <string name="app_name">PizzaTime</string>
     <string name="logo">Pizza Time Logo</string>
     <string name="tagline">...and every moment - is a great time for a pizza...</string>
-    <string name="s_pizza">Secret Pizza</string>
-    <string name="zero">0</string>
+    <string name="plus">Plus</string>
+    <string name="minus">Minus</string>
+    <string name="empty">empty</string>
+    <string name="free">is free</string>
+    <string name="offer">Special offer</string>
+    <string name="splinter_burger">Splinter Burger</string>
     <string name="you">You: </string>
     <string name="bonus">Bonus: </string>
     <string name="total">Total: </string>
+    <string name="add_to_order">Add to order</string>
+
+    <!--MainActivity-->
     <string name="in_develop">IN DEVELOP</string>
-    <string name="plus">Plus</string>
-    <string name="minus">Minus</string>
+
+    <!--WelcomeActivity-->
     <string name="order_text_view">You order is:</string>
     <string name="send_order">Send order</string>
-    <string name="add_to_order">Add to order</string>
     <string name="e_mail">order@pizza-time.com</string>
-    <string name="raphael_pizza">Raphael PIZZA</string>
-    <string name="empty">empty</string>
-    <string name="free">is free</string>
-    <string name="loren_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam ex ac bibendum lacinia. Nunc sed dui quis mauris tempus suscipit. Curabitur at egestas libero. Donec eleifend velit sit amet ipsum accumsan elementum. Nam hendrerit dolor a sagittis aliquam. Mauris vel arcu tincidunt, facilisis ligula id, pulvinar eros. Etiam convallis arcu a neque semper, pellentesque porttitor dolor lacinia. Curabitur ornare finibus sapien, quis scelerisque nunc posuere ut. Fusce quis dignissim purus. Suspendisse non lacus nunc. Pellentesque eget lorem cursus, accumsan libero eget, consequat leo. Quisque ut massa ac urna dapibus molestie sit amet in orci. Aenean nibh velit, egestas id odio eu, dictum semper ante. Suspendisse lobortis massa quis magna luctus semper. In malesuada ipsum quis mi condimentum, quis gravida sapien pellentesque.
 
-Quisque eu mi et velit egestas mollis. Duis mattis at enim ut auctor. Maecenas velit dui, dictum ac blandit at, fringilla eget orci. Phasellus est diam, placerat eu molestie in, commodo blandit justo. Praesent feugiat, ante non sodales lacinia, tortor arcu auctor quam, eu imperdiet purus ipsum sed velit. Fusce molestie lorem vitae ante mollis accumsan. Nulla facilisi. Cras blandit, lorem ut consectetur posuere, mi neque feugiat dolor, eu accumsan mi nulla vitae odio. Curabitur eget vulputate tortor, eget pellentesque nisi. Curabitur iaculis efficitur erat bibendum finibus. Suspendisse vestibulum leo eget lacinia bibendum.</string>
-    <string name="splinter_burger">Splinter Burger</string>
+    <!--RaphaelActivity-->
+    <string name="raphael_pizza">Raphael PIZZA</string>
+    <string name="s_pizza">Secret Pizza</string>
     <string name="offer_3_1">Take 3 and get 1 for free</string>
-    <string name="offer">Special offer</string>
 </resources>

@@ -60,12 +60,11 @@
             android:id="@+id/plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="32dp"
             android:background="@color/time_pizza_app_color"
             android:contentDescription="@string/plus"
-            android:src="@drawable/ic_up_64"
-            app:layout_constraintStart_toEndOf="@+id/productName"
+            android:src="@drawable/ic_teenage_mutant_ninja_turtles_48"
+            app:layout_constraintStart_toEndOf="@+id/s_pizza"
             app:layout_constraintTop_toTopOf="@+id/productName" />
 
         <ImageView
@@ -84,13 +83,12 @@
             android:id="@+id/minus"
             android:layout_width="64dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
             android:background="@color/time_pizza_app_color"
             android:contentDescription="@string/minus"
-            android:src="@drawable/ic_down_64"
+            android:src="@drawable/ic_shredder_48"
             app:layout_constraintBottom_toBottomOf="@+id/s_pizza"
-            app:layout_constraintStart_toEndOf="@+id/s_pizza" />
+            app:layout_constraintEnd_toEndOf="@+id/plus"
+            app:layout_constraintStart_toStartOf="@+id/plus" />
 
         <TextView
             android:id="@+id/itemView"

@@ -2,15 +2,13 @@ package ru.pks.pizzatime;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class RaphaelActivity extends AppCompatActivity {
+public class RaphaelActivity extends MainActivity {
 
     public static final String ORDER_RAFAEL = "orderRafael";
     private static final String ITEM_KEY = "item_key";
@@ -125,7 +123,7 @@ public class RaphaelActivity extends AppCompatActivity {
         offer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.offer_3_1, Toast.LENGTH_LONG).show();
+                toastCenterLong(getString(R.string.offer_3_1));
             }
         });
 

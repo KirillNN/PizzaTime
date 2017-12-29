@@ -3,18 +3,15 @@ package ru.pks.pizzatime;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends MainActivity {
 
     private static final int REQUEST = 1;
     private static final String TAG = "WelcomeActivity";
@@ -150,11 +147,5 @@ public class WelcomeActivity extends AppCompatActivity {
         } else {
             orderView.setText(orderFull);
         }
-    }
-
-    private void inDevelop() {
-        Toast inDevelop = Toast.makeText(getApplicationContext(), getString(R.string.in_develop), Toast.LENGTH_LONG);
-        inDevelop.setGravity(Gravity.CENTER, 0, 0);
-        inDevelop.show();
     }
 }

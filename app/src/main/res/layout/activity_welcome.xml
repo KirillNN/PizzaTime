@@ -23,7 +23,8 @@
             android:contentDescription="@string/logo"
             android:src="@drawable/pizza_time_100"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/tagline"
@@ -61,17 +62,17 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/pizza_l"
+                    android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_pizza_48" />
+                    app:srcCompat="@drawable/ic_pizza_48"
+                    android:layout_marginLeft="8dp" />
 
                 <TextView
                     android:id="@+id/raphaelTextView"
@@ -85,24 +86,24 @@
                     android:text="@string/raphael_pizza"
                     android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/pizza_r"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/pizza_l"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
-                    android:id="@+id/pizza_r"
+                    android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_pizza_48" />
+                    app:srcCompat="@drawable/ic_pizza_48"
+                    android:layout_marginEnd="8dp" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -126,10 +127,8 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/cocktail_l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
@@ -153,23 +152,22 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
-                    android:id="@+id/cocktail_r"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cocktail_48" />
+                    app:srcCompat="@drawable/ic_cocktail_48" android:layout_marginEnd="8dp"/>
 
             </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/splinter"
             android:layout_width="360dp"
             android:layout_height="64dp"
             android:layout_marginTop="244dp"
@@ -188,21 +186,21 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cocktail_48" />
+                    app:srcCompat="@drawable/ic_burger_48" />
 
                 <TextView
+                    android:id="@+id/splinterTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:paddingTop="8dp"
-                    android:text="@string/april_cocktail"
+                    android:text="@string/splinter_burger"
                     android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -213,20 +211,20 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cocktail_48" />
+                    app:srcCompat="@drawable/ic_burger_48" android:layout_marginEnd="8dp"/>
 
             </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/casey"
             android:layout_width="360dp"
             android:layout_height="64dp"
             android:layout_marginTop="312dp"
@@ -245,21 +243,20 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cocktail_48" />
+                    app:srcCompat="@drawable/ic_hot_dog_48" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:paddingTop="8dp"
-                    android:text="@string/april_cocktail"
+                    android:text="@string/casey_hot_dog"
                     android:textSize="30sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -270,14 +267,13 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="4dp"
                     android:contentDescription="@string/pizza"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cocktail_48" />
+                    app:srcCompat="@drawable/ic_hot_dog_48" android:layout_marginEnd="8dp"/>
 
             </android.support.constraint.ConstraintLayout>
 

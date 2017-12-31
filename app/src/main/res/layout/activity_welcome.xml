@@ -5,6 +5,7 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/time_pizza_app_color"
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout
@@ -17,13 +18,13 @@
             android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/logo"
-            android:src="@drawable/pt_150"
+            android:src="@drawable/pizza_time_150"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/tagline"
@@ -43,57 +44,159 @@
             app:layout_constraintStart_toEndOf="@+id/logo"
             app:layout_constraintTop_toTopOf="@+id/logo" />
 
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_width="0dp"
-            android:layout_height="112dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:fadeScrollbars="false"
-            android:fillViewport="true"
-            android:isScrollContainer="false"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:verticalScrollbarPosition="right"
+        <android.support.v7.widget.CardView
+            android:id="@+id/raphael"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="156dp"
+            app:cardBackgroundColor="@color/time_pizza_app_color"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ListView
-                android:id="@+id/ListView"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logo" />
-        </android.support.v4.widget.NestedScrollView>
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/pizza_l"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/pizza"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_pizza_48" />
+
+                <TextView
+                    android:id="@+id/raphaelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="108dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/raphael_pizza"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/pizza_r"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/pizza_l"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/pizza_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/pizza"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_pizza_48" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/april"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="228dp"
+            app:cardBackgroundColor="@color/time_pizza_app_color"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/cocktail_l"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/pizza"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_cocktail_48" />
+
+                <TextView
+                    android:id="@+id/aprilTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/april_cocktail"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <ImageView
+                    android:id="@+id/cocktail_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/pizza"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_cocktail_48" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/orderView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="308dp"
+            android:minHeight="80dp"
             android:text="@string/order_text_view"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/sendOrder"
-            style="@android:style/Widget.Holo.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/time_pizza_app_color"
-            android:text="@string/send_order"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            app:backgroundTint="@color/fab_color"
+            app:layout_constraintBottom_toBottomOf="@+id/orderView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/orderView" />
+            app:srcCompat="@drawable/ic_mail"
+            android:layout_marginRight="16dp" android:focusable="true" />
+
 
     </android.support.constraint.ConstraintLayout>
 

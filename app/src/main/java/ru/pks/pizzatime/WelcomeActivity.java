@@ -117,6 +117,22 @@ public class WelcomeActivity extends MainActivity {
             }
         });
 
+        splinter = findViewById(R.id.splinter);
+        splinter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inDevelop();
+            }
+        });
+
+        casey = findViewById(R.id.casey);
+        casey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inDevelop();
+            }
+        });
+
         sendOrder = findViewById(R.id.sendOrder);
         sendOrder.setOnClickListener(new View.OnClickListener() {
             @Override

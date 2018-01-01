@@ -5,6 +5,7 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/time_pizza_app_color"
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout
@@ -17,13 +18,13 @@
             android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/logo"
-            android:src="@drawable/pt_150"
+            android:src="@drawable/pizza_time_100"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/tagline"
@@ -66,12 +67,12 @@
             android:layout_marginTop="8dp"
             android:background="@color/time_pizza_app_color"
             android:contentDescription="@string/plus"
-            app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48"
             app:layout_constraintBottom_toBottomOf="@+id/s_pizza"
             app:layout_constraintEnd_toStartOf="@+id/s_pizza"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/s_pizza" />
+            app:layout_constraintTop_toTopOf="@+id/s_pizza"
+            app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48" />
 
         <ImageView
             android:id="@+id/s_pizza"
@@ -95,12 +96,12 @@
             android:layout_marginTop="8dp"
             android:background="@color/time_pizza_app_color"
             android:contentDescription="@string/minus"
-            app:srcCompat="@drawable/ic_shredder_48"
             app:layout_constraintBottom_toBottomOf="@+id/s_pizza"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/s_pizza"
-            app:layout_constraintTop_toTopOf="@+id/s_pizza" />
+            app:layout_constraintTop_toTopOf="@+id/s_pizza"
+            app:srcCompat="@drawable/ic_shredder_48" />
 
         <TextView
             android:id="@+id/itemView"

@@ -23,6 +23,8 @@ public class WelcomeActivity extends MainActivity {
     FloatingActionButton sendOrder;
     CardView raphael;
     CardView april;
+    CardView splinter;
+    CardView casey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,14 @@ public class WelcomeActivity extends MainActivity {
             @Override
             public void onClick(View v) {
                 raphaelStarted();
+            }
+        });
+
+        april = findViewById(R.id.april);
+        april.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inDevelop();
             }
         });
 

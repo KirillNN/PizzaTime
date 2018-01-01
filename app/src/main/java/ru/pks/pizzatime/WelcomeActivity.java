@@ -18,7 +18,6 @@ public class WelcomeActivity extends MainActivity {
     private String order;
     private String orderFull;
 
-
     TextView orderView;
     FloatingActionButton sendOrder;
     CardView raphael;

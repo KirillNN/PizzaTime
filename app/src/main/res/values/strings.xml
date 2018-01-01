@@ -7,7 +7,6 @@
     <string name="minus">Minus</string>
     <string name="empty">empty</string>
     <string name="free">is free</string>
-    <string name="raphael">Raphael</string>
     <string name="pizza">PIZZA</string>
     <string name="offer">Special offer</string>
     <string name="splinter_burger">Splinter\'s Burger</string>
@@ -15,6 +14,9 @@
     <string name="bonus">Bonus: </string>
     <string name="total">Total: </string>
     <string name="add_to_order">Add to order</string>
+    <string name="raphael_pizza">Raphael\'s PIZZA</string>
+    <string name="casey_hot_dog">Casey\'s HOT-DOG</string>
+    <string name="april_cocktail">April\'s COCKTAIL</string>
 
     <!--MainActivity-->
     <string name="in_develop">IN DEVELOP</string>
@@ -25,9 +27,6 @@
     <string name="e_mail">order@pizza-time.com</string>
 
     <!--RaphaelActivity-->
-    <string name="raphael_pizza">Raphael\'s PIZZA</string>
-    <string name="casey_hot_dog">Casey\'s HOT-DOG</string>
     <string name="s_pizza">Secret Pizza</string>
     <string name="offer_3_1">Take 3 and get 1 for free</string>
-    <string name="april_cocktail">April\'s COCKTAIL</string>
 </resources>

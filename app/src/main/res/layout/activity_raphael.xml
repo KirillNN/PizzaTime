@@ -72,6 +72,19 @@
             app:layout_constraintTop_toBottomOf="@+id/itemName"
             app:srcCompat="@drawable/pizza" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:backgroundTint="@color/fab_color"
+            app:layout_constraintStart_toEndOf="@+id/itemName"
+            app:layout_constraintTop_toBottomOf="@+id/itemName"
+            app:srcCompat="@drawable/ic_offer_64" />
+
         <TextView
             android:id="@+id/itemDesc"
             android:layout_width="0dp"
@@ -87,54 +100,69 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pizzaImageView" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/offer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:backgroundTint="@color/fab_color"
-            app:layout_constraintStart_toEndOf="@+id/itemName"
-            app:layout_constraintTop_toBottomOf="@+id/itemName"
-            app:srcCompat="@drawable/ic_offer_64" />
-
         <TextView
             android:id="@+id/itemView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="16dp"
             android:text="@string/you"
-            tools:layout_editor_absoluteX="124dp"
-            tools:layout_editor_absoluteY="387dp" />
+            app:layout_constraintStart_toEndOf="@+id/plus"
+            app:layout_constraintTop_toBottomOf="@+id/itemDesc" />
 
         <TextView
             android:id="@+id/itemBonusView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
             android:text="@string/bonus"
-            tools:layout_editor_absoluteX="92dp"
+            app:layout_constraintStart_toEndOf="@+id/plus"
             tools:layout_editor_absoluteY="420dp" />
 
         <TextView
             android:id="@+id/itemTotalView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/total"
-            tools:layout_editor_absoluteX="92dp"
+            app:layout_constraintStart_toEndOf="@+id/plus"
             tools:layout_editor_absoluteY="458dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/addToOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
             android:focusable="true"
             app:backgroundTint="@color/fab_color"
             app:fabSize="normal"
-            app:srcCompat="@drawable/ic_shopping_basket_button_"
-            tools:layout_editor_absoluteX="230dp"
-            tools:layout_editor_absoluteY="399dp" />
+            app:layout_constraintEnd_toEndOf="@+id/itemDesc"
+            app:layout_constraintTop_toBottomOf="@+id/itemDesc"
+            app:srcCompat="@drawable/ic_shopping_basket_button_" />
+
+        <ImageButton
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/time_pizza_app_color"
+            android:contentDescription="@string/plus"
+            app:layout_constraintStart_toStartOf="@+id/itemDesc"
+            app:layout_constraintTop_toTopOf="@+id/itemView"
+            app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48" />
+
+        <ImageButton
+            android:id="@+id/minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@color/time_pizza_app_color"
+            android:contentDescription="@string/minus"
+            app:layout_constraintBottom_toBottomOf="@+id/itemTotalView"
+            app:layout_constraintEnd_toStartOf="@+id/addToOrder"
+            app:srcCompat="@drawable/ic_shredder_48" />
 
     </android.support.constraint.ConstraintLayout>
 

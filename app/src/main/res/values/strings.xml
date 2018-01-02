@@ -28,5 +28,7 @@
 
     <!--RaphaelActivity-->
     <string name="s_pizza">Secret Pizza</string>
+    <string name="raphael_pizza_desc">Pizza with secret ingredients.\n
+As Rafael himself says, I just take everything that is in the fridge.</string>
     <string name="offer_3_1">Take 3 and get 1 for free</string>
 </resources>

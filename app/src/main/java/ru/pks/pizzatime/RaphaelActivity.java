@@ -2,9 +2,9 @@ package ru.pks.pizzatime;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,8 +23,8 @@ public class RaphaelActivity extends MainActivity {
     private TextView itemTotalView;
     private ImageButton plus;
     private ImageButton minus;
-    private ImageButton offer;
-    private Button addToOrder;
+    private FloatingActionButton offer;
+    private FloatingActionButton addToOrder;
     private String orderRafael;
 
     @Override
@@ -54,42 +54,6 @@ public class RaphaelActivity extends MainActivity {
         outState.putInt(ITEM_KEY, item);
         outState.putInt(ITEM_BONUS_KEY, itemBonus);
         outState.putInt(ITEM_TOTAL_KEY, itemTotal);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart Started");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart Started");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume Started");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause Started");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop Started");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy Started");
     }
 
     private void itemPlus() {

@@ -18,12 +18,12 @@ public class WelcomeActivity extends MainActivity {
     private String order;
     private String orderFull;
 
-    TextView orderView;
-    FloatingActionButton sendOrder;
-    CardView raphael;
-    CardView april;
-    CardView splinter;
-    CardView casey;
+    private TextView orderView;
+    private FloatingActionButton sendOrder;
+    private CardView raphael;
+    private CardView april;
+    private CardView splinter;
+    private CardView casey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,42 +46,6 @@ public class WelcomeActivity extends MainActivity {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState Started");
         outState.putString(ORDER_FULL, orderFull);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart Started");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart Started");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume Started");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause Started");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop Started");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy Started");
     }
 
     protected void raphaelStarted() {

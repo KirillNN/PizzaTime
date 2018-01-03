@@ -110,6 +110,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
+            android:maxWidth="280dp"
             android:text="@string/raphael_pizza_desc"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"

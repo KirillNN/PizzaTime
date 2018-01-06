@@ -29,7 +29,7 @@ public class WelcomeActivity extends MainActivity {
     private CardView casey;
 
     int test1;
-    int test2;
+    int test3;
 
 
     @Override
@@ -114,6 +114,34 @@ public class WelcomeActivity extends MainActivity {
 
         orderView = findViewById(R.id.orderView);
 
+        try {
+            SQLiteOpenHelper PizzaTimeDatabaseHelper = new PizzaTimeDatabaseHelper(this);
+            SQLiteDatabase db = PizzaTimeDatabaseHelper.getReadableDatabase();
+            Cursor cursor = db.query("PTIME",
+                    new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
+                    null, null, null, null, null);
+
+            cursor.moveToFirst();
+            if (cursor.moveToFirst()) {
+                test1 = cursor.getInt(0);
+            }
+            cursor.moveToNext();
+            if (cursor.moveToNext()){
+                test3 = cursor.getInt(0);
+            }
+
+            TextView textView = findViewById(R.id.textView);
+            textView.setText(String.valueOf(test1));
+
+            TextView textView2 = findViewById(R.id.textView2);
+            textView2.setText(String.valueOf(test3));
+
+            cursor.close();
+            db.close();
+        } catch (SQLiteException e) {
+            toastCenterLong(getString(R.string.db_error));
+        }
+
         updateUI();
     }
 
@@ -122,36 +150,6 @@ public class WelcomeActivity extends MainActivity {
     }
 
     public void updateUI() {
-
-        try {
-            SQLiteOpenHelper PizzaTimeDatabaseHelper = new PizzaTimeDatabaseHelper(this);
-            SQLiteDatabase db = PizzaTimeDatabaseHelper.getReadableDatabase();
-            Cursor cursor = db.query("PIZZA",
-                    new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
-                    null, null, null, null, null);
-
-            cursor.moveToFirst();
-            if (cursor.moveToFirst()) {
-                test1 = cursor.getInt(2);
-            }
-
-            cursor.moveToNext();
-            if (cursor.moveToNext()) {
-                test2 = cursor.getInt(2);
-            }
-
-
-            TextView textView = findViewById(R.id.textView);
-            textView.setText(String.valueOf(test1));
-
-            TextView textView2 = findViewById(R.id.textView2);
-            textView2.setText(String.valueOf(test2));
-
-            cursor.close();
-            db.close();
-        } catch (SQLiteException e) {
-            toastCenterLong(getString(R.string.db_error));
-        }
 
         if (orderFull.equals(getString(R.string.empty))) {
             orderView.setText(order);

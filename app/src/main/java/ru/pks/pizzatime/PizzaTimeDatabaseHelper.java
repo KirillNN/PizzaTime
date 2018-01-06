@@ -33,13 +33,16 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
         pizzaValues.put("TYPE", type);
         pizzaValues.put("TYPE_BONUS", type_bonus);
         pizzaValues.put("ORDER_QUANTITY", orderQuantity);
-        db.insert("PIZZA", null, pizzaValues);
+        db.insert("PTIME", null, pizzaValues);
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 1) {
-            db.execSQL("CREATE TABLE PIZZA ("
-                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        if (oldVersion < 0) {
+            db.execSQL("DROP TABLE PTIME");
+            db.execSQL("DROP TABLE PTYME");
+            db.execSQL("DROP TABLE PIZZA");
+            db.execSQL("CREATE TABLE PTIME ("
+                    + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
                     + "DESCRIPTION TEXT, "
                     + "BONUS TEXT, "
@@ -51,8 +54,8 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
                             "As Rafael himself says, I just take everything that is in the fridge.",
                     "Take 3 and get 1 for free", 1, 0, 0);
 
-            insertPizza(db, "Raphael\'s PIZZA (Bonus)", "", "", 1,
-                    1, 0);
+            insertPizza(db, "Raphael\'s PIZZA (Bonus)", "1", "1",
+                    1, 1, 0);
         }
     }
 }

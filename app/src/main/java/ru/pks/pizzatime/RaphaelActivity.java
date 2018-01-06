@@ -15,8 +15,9 @@ public class RaphaelActivity extends MainActivity {
     private static final String ITEM_BONUS_KEY = "item_bonus_key";
     private static final String ITEM_TOTAL_KEY = "item_total_key";
     private static final String TAG = "RaphaelActivity";
+    private static final int TYPE = 1;
     private int item;
-    private int itemBonus;
+    protected static int itemBonusRaphael;
     private int itemTotal;
     private TextView itemView;
     private TextView itemBonusView;
@@ -36,11 +37,11 @@ public class RaphaelActivity extends MainActivity {
 
         if (savedInstanceState != null) {
             item = savedInstanceState.getInt(ITEM_KEY);
-            itemBonus = savedInstanceState.getInt(ITEM_BONUS_KEY);
+            itemBonusRaphael = savedInstanceState.getInt(ITEM_BONUS_KEY);
             itemTotal = savedInstanceState.getInt(ITEM_TOTAL_KEY);
         } else {
             item = 0;
-            itemBonus = 0;
+            itemBonusRaphael = 0;
             itemTotal = 0;
         }
 
@@ -52,31 +53,28 @@ public class RaphaelActivity extends MainActivity {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState Started");
         outState.putInt(ITEM_KEY, item);
-        outState.putInt(ITEM_BONUS_KEY, itemBonus);
+        outState.putInt(ITEM_BONUS_KEY, itemBonusRaphael);
         outState.putInt(ITEM_TOTAL_KEY, itemTotal);
     }
 
     private void itemPlus() {
         item++;
-        itemBonus();
-        itemTotal = item + itemBonus;
+        Bonus.bonusItem(TYPE, item);
+        itemTotal = item + itemBonusRaphael;
     }
 
     private void itemMinus() {
         if (item > 0) {
             item--;
-            itemBonus();
-            itemTotal = item + itemBonus;
+            Bonus.bonusItem(TYPE, item);
+            itemTotal = item + itemBonusRaphael;
         } else {
             item = 0;
-            itemBonus = 0;
+            itemBonusRaphael = 0;
             itemTotal = 0;
         }
     }
 
-    private void itemBonus() {
-        itemBonus = (int) Math.ceil(item / 3);
-    }
 
     private void initUI() {
         itemView = findViewById(R.id.itemView);
@@ -125,8 +123,8 @@ public class RaphaelActivity extends MainActivity {
 
     private void updateUI() {
         itemView.setText(getString(R.string.you) + item);
-        itemBonusView.setText(getString(R.string.bonus) + itemBonus);
+        itemBonusView.setText(getString(R.string.bonus) + itemBonusRaphael);
         itemTotalView.setText(getString(R.string.total) + itemTotal);
-        orderRafael = getString(R.string.raphael_pizza) + ": " + itemTotal + " (" + itemBonus + " "+ getString(R.string.free) + ")";
+        orderRafael = getString(R.string.raphael_pizza) + ": " + itemTotal + " (" + itemBonusRaphael + " "+ getString(R.string.free) + ")";
     }
 }

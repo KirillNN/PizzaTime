@@ -132,9 +132,12 @@
                 android:id="@+id/itemTotalView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/total"
-                tools:layout_editor_absoluteX="82dp"
-                tools:layout_editor_absoluteY="72dp" />
+                app:layout_constraintStart_toEndOf="@+id/plus"
+                app:layout_constraintTop_toBottomOf="@+id/plus"
+                android:layout_marginLeft="26dp" />
 
             <TextView
                 android:id="@+id/itemView"
@@ -151,12 +154,13 @@
                 android:id="@+id/minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:background="@color/time_pizza_app_color"
                 android:contentDescription="@string/minus"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_shredder_48"
-                tools:layout_editor_absoluteX="175dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/itemTotalView"
+                app:layout_constraintStart_toEndOf="@+id/itemBonusView"
+                app:srcCompat="@drawable/ic_shredder_48" />
 
             <TextView
                 android:id="@+id/itemBonusView"
@@ -173,12 +177,10 @@
                 android:id="@+id/plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:background="@color/time_pizza_app_color"
                 android:contentDescription="@string/plus"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/itemView"
                 app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48" />
         </android.support.constraint.ConstraintLayout>
 

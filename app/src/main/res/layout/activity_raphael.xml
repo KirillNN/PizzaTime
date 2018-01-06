@@ -119,55 +119,16 @@
             app:layout_constraintTop_toBottomOf="@+id/itemImageView" />
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
+            android:layout_height="113dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="384dp"
+            android:maxWidth="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/itemTotalView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total"
-                tools:layout_editor_absoluteX="82dp"
-                tools:layout_editor_absoluteY="72dp" />
-
-            <TextView
-                android:id="@+id/itemView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="76dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/you"
-                app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="76dp" />
-
-            <ImageButton
-                android:id="@+id/minus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@color/time_pizza_app_color"
-                android:contentDescription="@string/minus"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_shredder_48"
-                tools:layout_editor_absoluteX="175dp" />
-
-            <TextView
-                android:id="@+id/itemBonusView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="9dp"
-                android:text="@string/bonus"
-                app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toBottomOf="@+id/itemView"
-                android:layout_marginLeft="44dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="250dp"
+            android:layout_width="wrap_content">
 
             <ImageButton
                 android:id="@+id/plus"
@@ -180,6 +141,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48" />
+
+            <ImageButton
+                android:id="@+id/minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/time_pizza_app_color"
+                android:contentDescription="@string/minus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_shredder_48" />
+
+            <TextView
+                android:id="@+id/itemView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="76dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/you"
+                app:layout_constraintStart_toEndOf="@+id/plus"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemBonusView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="9dp"
+                android:text="@string/bonus"
+                app:layout_constraintStart_toEndOf="@+id/plus"
+                app:layout_constraintTop_toBottomOf="@+id/itemView" />
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>

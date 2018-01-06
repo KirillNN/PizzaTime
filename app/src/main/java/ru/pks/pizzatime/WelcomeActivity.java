@@ -1,7 +1,10 @@
 package ru.pks.pizzatime;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
@@ -11,12 +14,12 @@ import android.widget.TextView;
 
 public class WelcomeActivity extends MainActivity {
 
-    private static final int REQUEST_RAPHAEL = 1;
     private static final String TAG = "WelcomeActivity";
     private static final String ORDER_FULL = "order_full";
 
     private String order;
     private String orderFull;
+    private String bonusFull;
 
     private TextView orderView;
     private FloatingActionButton sendOrder;
@@ -24,6 +27,10 @@ public class WelcomeActivity extends MainActivity {
     private CardView april;
     private CardView splinter;
     private CardView casey;
+
+    int test1;
+    int test2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +56,8 @@ public class WelcomeActivity extends MainActivity {
     }
 
     protected void raphaelStarted() {
-        Intent intent = new Intent(WelcomeActivity.this, RaphaelActivity.class);
-        startActivityForResult(intent, REQUEST_RAPHAEL);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_RAPHAEL && resultCode == Activity.RESULT_OK && data != null) {
-            orderFull = data.getStringExtra(RaphaelActivity.ORDER_RAFAEL);
-            updateUI();
-        }
+        Intent raphael = new Intent(WelcomeActivity.this, RaphaelActivity.class);
+        startActivity(raphael);
     }
 
     private void initUI() {
@@ -114,14 +113,51 @@ public class WelcomeActivity extends MainActivity {
         });
 
         orderView = findViewById(R.id.orderView);
+
         updateUI();
     }
 
+    public void orderFull() {
+        orderFull = order + "\n";
+    }
+
     public void updateUI() {
+
+        try {
+            SQLiteOpenHelper PizzaTimeDatabaseHelper = new PizzaTimeDatabaseHelper(this);
+            SQLiteDatabase db = PizzaTimeDatabaseHelper.getReadableDatabase();
+            Cursor cursor = db.query("PIZZA",
+                    new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
+                    null, null, null, null, null);
+
+            cursor.moveToFirst();
+            if (cursor.moveToFirst()) {
+                test1 = cursor.getInt(2);
+            }
+
+            cursor.moveToNext();
+            if (cursor.moveToNext()) {
+                test2 = cursor.getInt(2);
+            }
+
+
+            TextView textView = findViewById(R.id.textView);
+            textView.setText(String.valueOf(test1));
+
+            TextView textView2 = findViewById(R.id.textView2);
+            textView2.setText(String.valueOf(test2));
+
+            cursor.close();
+            db.close();
+        } catch (SQLiteException e) {
+            toastCenterLong(getString(R.string.db_error));
+        }
+
         if (orderFull.equals(getString(R.string.empty))) {
             orderView.setText(order);
         } else {
             orderView.setText(orderFull);
+
         }
     }
 }

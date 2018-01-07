@@ -16,11 +16,17 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        updateMyDatabase(db, 0, DB_VERSION);
+//        updateMyDatabase(db, 0, DB_VERSION);
+        createMyDatabase(db,0, DB_VERSION);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        updateMyDatabase(db, oldVersion, newVersion);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         updateMyDatabase(db, oldVersion, newVersion);
     }
 
@@ -36,8 +42,7 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
         db.insert("PTIME", null, pizzaValues);
     }
 
-    private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        db.execSQL("DROP TABLE PTIME");
+    private void createMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("CREATE TABLE PTIME ("
                 + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "NAME TEXT, "
@@ -53,5 +58,10 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
         insertPizza(db, "Raphael\'s PIZZA (Bonus)", "N/A", "N/A",
                 1, 1, 0);
+    }
+
+    private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE PTIME");
+        createMyDatabase(db, oldVersion, newVersion);
     }
 }

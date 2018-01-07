@@ -115,8 +115,8 @@ public class WelcomeActivity extends MainActivity {
         orderView = findViewById(R.id.orderView);
 
         try {
-            SQLiteOpenHelper PizzaTimeDatabaseHelper = new PizzaTimeDatabaseHelper(this);
-            SQLiteDatabase db = PizzaTimeDatabaseHelper.getReadableDatabase();
+            SQLiteOpenHelper pizzaDB = new PizzaTimeDatabaseHelper(this);
+            SQLiteDatabase db = pizzaDB.getReadableDatabase();
             Cursor cursor = db.query("PTIME",
                     new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
                     null, null, null, null, null);

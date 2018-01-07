@@ -37,25 +37,21 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 0) {
-            db.execSQL("DROP TABLE PTIME");
-            db.execSQL("DROP TABLE PTYME");
-            db.execSQL("DROP TABLE PIZZA");
-            db.execSQL("CREATE TABLE PTIME ("
-                    + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + "NAME TEXT, "
-                    + "DESCRIPTION TEXT, "
-                    + "BONUS TEXT, "
-                    + "TYPE INTEGER, "
-                    + "TYPE_BONUS INTEGER, "
-                    + "ORDER_QUANTITY INTEGER);");
+//        db.execSQL("DROP TABLE PTIME");
+        db.execSQL("CREATE TABLE PTIME ("
+                + "_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "NAME TEXT, "
+                + "DESCRIPTION TEXT, "
+                + "BONUS TEXT, "
+                + "TYPE INTEGER, "
+                + "TYPE_BONUS INTEGER, "
+                + "ORDER_QUANTITY INTEGER);");
 
-            insertPizza(db, "Raphael\'s PIZZA", "Pizza with secret ingredients.\n" +
-                            "As Rafael himself says, I just take everything that is in the fridge.",
-                    "Take 3 and get 1 for free", 1, 0, 0);
+        insertPizza(db, "Raphael\'s PIZZA", "Pizza with secret ingredients.\n" +
+                        "As Rafael himself says, I just take everything that is in the fridge.",
+                "Take 3 and get 1 for free", 1, 0, 0);
 
-            insertPizza(db, "Raphael\'s PIZZA (Bonus)", "1", "1",
-                    1, 1, 0);
-        }
+        insertPizza(db, "Raphael\'s PIZZA (Bonus)", "N/A", "N/A",
+                1, 1, 0);
     }
 }

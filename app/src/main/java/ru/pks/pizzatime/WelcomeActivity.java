@@ -2,6 +2,7 @@ package ru.pks.pizzatime;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -121,11 +122,11 @@ public class WelcomeActivity extends MainActivity {
                     new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
                     null, null, null, null, null);
 
-            cursor.moveToFirst();
+            DatabaseUtils.dumpCursorToString(cursor);
+
             if (cursor.moveToFirst()) {
                 test1 = cursor.getInt(0);
             }
-            cursor.moveToNext();
             if (cursor.moveToNext()){
                 test3 = cursor.getInt(0);
             }

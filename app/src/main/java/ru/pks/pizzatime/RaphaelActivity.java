@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class RaphaelActivity extends MainActivity {
 
-    private static final String ITEM_KEY = "item_key";
-    private static final String ITEM_BONUS_KEY = "item_bonus_key";
     private static final String TAG = "RaphaelActivity";
     private static final int TYPE = 1;
     protected static int itemRaphaelBonus;

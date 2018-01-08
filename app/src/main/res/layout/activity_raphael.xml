@@ -14,35 +14,47 @@
         tools:context="ru.pks.pizzatime.RaphaelActivity"
         tools:layout_editor_absoluteY="73dp">
 
-        <ImageView
-            android:id="@+id/logo"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/logo"
-            android:src="@drawable/pizza_time_100"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tagline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:gravity="start|center_horizontal"
-            android:text="@string/tagline"
-            android:textColor="#feeb9e"
-            android:textSize="18sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/logo"
+            android:maxWidth="360dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/logo"
-            app:layout_constraintTop_toTopOf="@+id/logo" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/pizza_time_100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:maxWidth="250dp"
+                android:text="@string/tagline"
+                android:textColor="#feeb9e"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/logo"
+                app:layout_constraintTop_toTopOf="@+id/logo"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="4dp" />
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/itemName"
@@ -50,13 +62,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/raphael_pizza"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLogo" />
 
         <ImageView
             android:id="@+id/itemImageView"
@@ -73,7 +85,7 @@
             app:srcCompat="@drawable/pizza" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/offer"
+            android:id="@+id/gift"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -84,13 +96,14 @@
             app:fabSize="normal"
             app:layout_constraintEnd_toStartOf="@+id/itemName"
             app:layout_constraintTop_toBottomOf="@+id/itemName"
-            app:srcCompat="@drawable/ic_offer_64"
+            app:srcCompat="@drawable/ic_gift"
             android:layout_marginRight="8dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/addToOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:clickable="true"
@@ -99,8 +112,7 @@
             app:fabSize="normal"
             app:layout_constraintStart_toEndOf="@+id/itemName"
             app:layout_constraintTop_toBottomOf="@+id/itemName"
-            app:srcCompat="@drawable/ic_shopping_basket_button_"
-            android:layout_marginLeft="8dp" />
+            app:srcCompat="@drawable/ic_shopping_basket_button_" />
 
         <TextView
             android:id="@+id/itemDesc"
@@ -110,30 +122,35 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:maxWidth="280dp"
             android:text="@string/raphael_pizza_desc"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/itemImageView"
+            app:layout_constraintWidth_max="300dp" />
 
         <android.support.constraint.ConstraintLayout
-            android:layout_height="113dp"
+            android:id="@+id/constraintOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="384dp"
-            android:maxWidth="250dp"
+            android:layout_marginTop="8dp"
+            android:maxHeight="112dp"
+            android:maxWidth="248dp"
+            android:minHeight="112dp"
+            android:minWidth="248dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_max="250dp"
-            android:layout_width="wrap_content">
+            app:layout_constraintTop_toBottomOf="@+id/itemDesc"
+            app:layout_constraintWidth_max="250dp">
 
             <ImageButton
                 android:id="@+id/plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/time_pizza_app_color"
@@ -148,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@color/time_pizza_app_color"
                 android:contentDescription="@string/minus"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -158,8 +176,8 @@
                 android:id="@+id/itemView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="76dp"
-                android:layout_marginStart="76dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:text="@string/you"
                 app:layout_constraintStart_toEndOf="@+id/plus"
@@ -169,12 +187,12 @@
                 android:id="@+id/itemBonusView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="44dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/bonus"
-                app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toBottomOf="@+id/itemView" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/minus" />
 
         </android.support.constraint.ConstraintLayout>
 

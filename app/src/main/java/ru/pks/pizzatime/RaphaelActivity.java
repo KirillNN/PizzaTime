@@ -20,7 +20,7 @@ public class RaphaelActivity extends MainActivity {
     private TextView itemBonusView;
     private ImageButton plus;
     private ImageButton minus;
-    private FloatingActionButton offer;
+    private FloatingActionButton gift;
     private FloatingActionButton addToOrder;
 
 
@@ -35,25 +35,22 @@ public class RaphaelActivity extends MainActivity {
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart() { //Connect DB
         super.onStart();
-        //Connect DB
         connectDBWrite();
 
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() { //Final setting UI
         super.onResume();
-        //Final setting UI
         readFromDB();
         updateUI();
     }
 
     @Override
-    protected void onStop() {
+    protected void onStop() { //Disconnect DB
         super.onStop();
-        //Disconnect DB
         db.close();
     }
 
@@ -79,11 +76,11 @@ public class RaphaelActivity extends MainActivity {
         itemView = findViewById(R.id.itemView);
         itemBonusView = findViewById(R.id.itemBonusView);
 
-        offer = findViewById(R.id.offer);
-        offer.setOnClickListener(new View.OnClickListener() {
+        gift = findViewById(R.id.gift);
+        gift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastCenterLong(getString(R.string.offer_3_1));
+                toastCenterLong(getString(R.string.gift_3_1));
             }
         });
 
@@ -118,14 +115,17 @@ public class RaphaelActivity extends MainActivity {
     private void readFromDB() {
         if (isConnectedWrite) {
             Cursor cursor = db.query("PTIME",
-                    new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
-                    null, null, null, null, null);
+                    new String[]{"ORDER_QUANTITY"},
+                    "TYPE = ?",
+                    new String[]{"1"},
+                    null, null, null);
             if (cursor.moveToFirst()) {
-                itemRaphael = cursor.getInt(2);
+                itemRaphael = cursor.getInt(0);
             }
             if (cursor.moveToNext()) {
-                itemRaphaelBonus = cursor.getInt(2);
+                itemRaphaelBonus = cursor.getInt(0);
             }
+            cursor.close();
         } else {
             itemRaphael = 0;
             itemRaphaelBonus = 0;

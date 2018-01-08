@@ -53,7 +53,7 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
         insertPizza(db, "Raphael\'s PIZZA", "Pizza with secret ingredients.\n" +
                         "As Rafael himself says, I just take everything that is in the fridge.",
-                "Take 3 and get 1 for free", 1, 0, 0);
+                "Take 3 and get 1 for free.", 1, 0, 0);
 
         insertPizza(db, "Raphael\'s PIZZA (Bonus)", "N/A", "N/A",
                 1, 1, 0);

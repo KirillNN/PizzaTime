@@ -1,5 +1,6 @@
 package ru.pks.pizzatime;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -15,12 +16,14 @@ public class RaphaelActivity extends MainActivity {
     private static final int TYPE = 1;
     private int item;
     protected static int itemBonusRaphael_1;
+
     private TextView itemView;
     private TextView itemBonusView;
     private ImageButton plus;
     private ImageButton minus;
     private FloatingActionButton offer;
     private FloatingActionButton addToOrder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,27 @@ public class RaphaelActivity extends MainActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        //Connect DB
+        connectDBWrite();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Final setting UI
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //Disconnect DB
+        db.close();
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState Started");
@@ -51,6 +75,7 @@ public class RaphaelActivity extends MainActivity {
     private void itemPlus() {
         item++;
         Bonus.bonusItem(TYPE, item);
+        updateDB();
     }
 
     private void itemMinus() {
@@ -62,7 +87,6 @@ public class RaphaelActivity extends MainActivity {
             itemBonusRaphael_1 = 0;
         }
     }
-
 
     private void initUI() {
         itemView = findViewById(R.id.itemView);
@@ -104,6 +128,15 @@ public class RaphaelActivity extends MainActivity {
         });
 
         updateUI();
+    }
+
+    private void updateDB() {
+        ContentValues pizzaValues = new ContentValues();
+        pizzaValues.put("ORDER_QUANTITY", item);
+        db.update("PTIME",
+                pizzaValues,
+                "_id = ?",
+                new String[] {"1"});
     }
 
     private void updateUI() {

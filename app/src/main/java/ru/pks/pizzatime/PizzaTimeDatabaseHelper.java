@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "pizza_time";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     PizzaTimeDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -16,7 +16,6 @@ public class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        updateMyDatabase(db, 0, DB_VERSION);
         createMyDatabase(db,0, DB_VERSION);
     }
 

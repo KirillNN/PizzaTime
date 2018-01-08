@@ -2,10 +2,6 @@ package ru.pks.pizzatime;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
@@ -115,22 +111,17 @@ public class WelcomeActivity extends MainActivity {
 
         orderView = findViewById(R.id.orderView);
 
-        try {
-            SQLiteOpenHelper pizzaDB = new PizzaTimeDatabaseHelper(this);
-            SQLiteDatabase db = pizzaDB.getReadableDatabase();
+        connectDBRead();
+        if (isConnectedRead) {
             Cursor cursor = db.query("PTIME",
                     new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
                     null, null, null, null, null);
-
-            DatabaseUtils.dumpCursorToString(cursor);
-
             if (cursor.moveToFirst()) {
-                test1 = cursor.getInt(0);
+                test1 = cursor.getInt(2);
             }
-            if (cursor.moveToNext()){
-                test3 = cursor.getInt(0);
+            if (cursor.moveToNext()) {
+                test3 = cursor.getInt(2);
             }
-
             TextView textView = findViewById(R.id.textView);
             textView.setText(String.valueOf(test1));
 
@@ -139,9 +130,10 @@ public class WelcomeActivity extends MainActivity {
 
             cursor.close();
             db.close();
-        } catch (SQLiteException e) {
-            toastCenterLong(getString(R.string.db_error));
         }
+
+//            DatabaseUtils.dumpCursorToString(cursor);
+            //TODO Read about dumpCursorToString
 
         updateUI();
     }

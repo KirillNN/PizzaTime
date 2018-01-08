@@ -138,9 +138,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:maxHeight="112dp"
-            android:maxWidth="248dp"
+            android:maxWidth="252dp"
             android:minHeight="112dp"
-            android:minWidth="248dp"
+            android:minWidth="252dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemDesc"
@@ -176,22 +176,22 @@
                 android:id="@+id/order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/you"
                 app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="16dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/itemBonusView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:text="@string/bonus"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/minus"
-                android:layout_marginLeft="8dp" />
+                app:layout_constraintTop_toTopOf="@+id/minus" />
 
             <TextView
                 android:id="@+id/itemBonus"
@@ -209,11 +209,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:text="@string/raphael_pizza"
                 app:layout_constraintBottom_toBottomOf="@+id/plus"
-                app:layout_constraintStart_toEndOf="@+id/plus"
-                android:layout_marginLeft="16dp" />
+                app:layout_constraintStart_toEndOf="@+id/plus" />
 
         </android.support.constraint.ConstraintLayout>
 

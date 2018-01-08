@@ -116,10 +116,8 @@ public class WelcomeActivity extends MainActivity {
                 Intent mail = new Intent(Intent.ACTION_SEND);
                 mail.setType("text/plain");
                 mail.putExtra(Intent.EXTRA_TEXT, orderFull);
-                mail.putExtra(Intent.EXTRA_EMAIL, "user@server.com");
-                mail.putExtra(Intent.EXTRA_BCC, "user@server.com");
-                mail.putExtra(Intent.EXTRA_CC, "user@server.com");
-                //TODO E-mail
+                String[] to = {getString(R.string.e_mail)};
+                mail.putExtra(Intent.EXTRA_EMAIL, to);
                 mail.putExtra(Intent.EXTRA_SUBJECT, "Order");
                 Intent chosenIntent = Intent.createChooser(mail, getString(R.string.send_order));
                 startActivity(chosenIntent);

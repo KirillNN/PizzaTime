@@ -74,7 +74,7 @@ public class RaphaelActivity extends MainActivity {
 
     private void initUI() {
         itemOrder = findViewById(R.id.itemOrder);
-        itemBonus = findViewById(R.id.itemBonusView);
+        itemBonus = findViewById(R.id.itemBonus);
 
         gift = findViewById(R.id.gift);
         gift.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,9 @@ public class RaphaelActivity extends MainActivity {
     }
 
     private void updateUI() {
-        itemOrder.setText(getString(R.string.raphael_pizza) + ": " + itemRaphael);
-        itemBonus.setText(getString(R.string.raphael_pizza_bonus) +": " + itemRaphaelBonus);
+        String itemOrderText = getString(R.string.raphael_pizza) + ": " + itemRaphael;
+        itemOrder.setText(itemOrderText);
+        String itemBonusText = getString(R.string.raphael_pizza_bonus) +": " + itemRaphaelBonus;
+        itemBonus.setText(itemBonusText);
     }
 }

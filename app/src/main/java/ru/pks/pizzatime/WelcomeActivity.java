@@ -14,9 +14,7 @@ public class WelcomeActivity extends MainActivity {
     private static final String TAG = "WelcomeActivity";
     private static final String ORDER_FULL = "order_full";
 
-    private String order;
     private String orderFull;
-    private String bonusFull;
 
     private TextView orderView;
     private FloatingActionButton sendOrder;
@@ -25,10 +23,6 @@ public class WelcomeActivity extends MainActivity {
     private CardView splinter;
     private CardView casey;
 
-    int test1;
-    int test3;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +30,20 @@ public class WelcomeActivity extends MainActivity {
 
         Log.d(TAG, "onCreate Started");
 
-        if (savedInstanceState != null) {
-            orderFull = savedInstanceState.getString(ORDER_FULL);
-        } else {
-            orderFull = getString(R.string.empty);
-        }
-
         initUI();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        connectDBRead();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         updateFromDB();
+        updateUI();
     }
 
     @Override
@@ -62,21 +52,12 @@ public class WelcomeActivity extends MainActivity {
         db.close();
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.d(TAG, "onSaveInstanceState Started");
-        outState.putString(ORDER_FULL, orderFull);
-    }
-
     protected void raphaelStarted() {
         Intent raphael = new Intent(WelcomeActivity.this, RaphaelActivity.class);
         startActivity(raphael);
     }
 
     private void initUI() {
-        order = getString(R.string.order_text_view);
-
         raphael = findViewById(R.id.raphael);
         raphael.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,44 +110,38 @@ public class WelcomeActivity extends MainActivity {
         updateFromDB();
 
 //            DatabaseUtils.dumpCursorToString(cursor);
-        //TODO Read about dumpCursorToString
+        //TODO Question about dumpCursorToString
 
         updateUI();
     }
 
     private void orderFull() {
-        orderFull = order + "\n";
+        orderFull = getString(R.string.order_text_view);
+        if (RaphaelActivity.itemRaphael > 0) {
+            orderFull += (getString(R.string.raphael_pizza) + ": " + RaphaelActivity.itemRaphael + " " + getString(R.string.pieces) + "\n");
+        }
+        if (RaphaelActivity.itemRaphaelBonus > 0) {
+            orderFull += (getString(R.string.raphael_pizza_bonus) + ": " + RaphaelActivity.itemRaphaelBonus + " " + getString(R.string.pieces) + "\n");
+        }
     }
 
     private void updateFromDB() {
-        connectDBRead();
         if (isConnectedRead) {
             Cursor cursor = db.query("PTIME",
                     new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
                     null, null, null, null, null);
             if (cursor.moveToFirst()) {
-                test1 = cursor.getInt(2);
+                RaphaelActivity.itemRaphael = cursor.getInt(2);
             }
             if (cursor.moveToNext()) {
-                test3 = cursor.getInt(2);
+                RaphaelActivity.itemRaphaelBonus = cursor.getInt(2);
             }
-            TextView textView = findViewById(R.id.textView);
-            textView.setText(String.valueOf(test1));
-
-            TextView textView2 = findViewById(R.id.textView2);
-            textView2.setText(String.valueOf(test3));
-
             cursor.close();
         }
     }
 
     private void updateUI() {
-
-        if (orderFull.equals(getString(R.string.empty))) {
-            orderView.setText(order);
-        } else {
-            orderView.setText(orderFull);
-
-        }
+        orderFull();
+        orderView.setText(orderFull);
     }
 }

@@ -32,7 +32,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp"
                 android:contentDescription="@string/logo"
-                android:src="@drawable/pizza_time_100"
+                android:src="@drawable/ptime_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -157,7 +157,7 @@
                 android:contentDescription="@string/plus"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles_48" />
+                app:srcCompat="@drawable/ic_teenage_mutant_ninja_turtles" />
 
             <ImageButton
                 android:id="@+id/minus"
@@ -170,18 +170,17 @@
                 android:contentDescription="@string/minus"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_shredder_48" />
+                app:srcCompat="@drawable/ic_shredder" />
 
             <TextView
                 android:id="@+id/order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:text="@string/you"
                 app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/plus"
+                android:layout_marginLeft="16dp" />
 
             <TextView
                 android:id="@+id/itemBonusView"
@@ -197,10 +196,9 @@
                 android:id="@+id/itemBonus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
                 android:text="@string/raphael_pizza_bonus"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/minus"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="8dp" />
 

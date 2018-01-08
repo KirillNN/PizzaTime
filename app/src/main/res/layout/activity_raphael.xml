@@ -173,26 +173,47 @@
                 app:srcCompat="@drawable/ic_shredder_48" />
 
             <TextView
-                android:id="@+id/itemView"
+                android:id="@+id/order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/you"
                 app:layout_constraintStart_toEndOf="@+id/plus"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="16dp" />
 
             <TextView
                 android:id="@+id/itemBonusView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@string/bonus"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/minus" />
+                app:layout_constraintTop_toTopOf="@+id/minus"
+                android:layout_marginLeft="8dp" />
+
+            <TextView
+                android:id="@+id/itemBonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/raphael_pizza_bonus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp" />
+
+            <TextView
+                android:id="@+id/itemOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/raphael_pizza"
+                app:layout_constraintBottom_toBottomOf="@+id/plus"
+                app:layout_constraintStart_toEndOf="@+id/plus"
+                android:layout_marginLeft="16dp" />
 
         </android.support.constraint.ConstraintLayout>
 

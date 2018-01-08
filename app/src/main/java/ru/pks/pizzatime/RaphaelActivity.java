@@ -16,8 +16,8 @@ public class RaphaelActivity extends MainActivity {
     protected static int itemRaphaelBonus;
     protected static int itemRaphael;
 
-    private TextView itemView;
-    private TextView itemBonusView;
+    private TextView itemOrder;
+    private TextView itemBonus;
     private ImageButton plus;
     private ImageButton minus;
     private FloatingActionButton gift;
@@ -73,8 +73,8 @@ public class RaphaelActivity extends MainActivity {
     }
 
     private void initUI() {
-        itemView = findViewById(R.id.itemView);
-        itemBonusView = findViewById(R.id.itemBonusView);
+        itemOrder = findViewById(R.id.itemOrder);
+        itemBonus = findViewById(R.id.itemBonusView);
 
         gift = findViewById(R.id.gift);
         gift.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,7 @@ public class RaphaelActivity extends MainActivity {
     }
 
     private void updateUI() {
-        itemView.setText(getString(R.string.you) + itemRaphael);
-        itemBonusView.setText(getString(R.string.bonus) + itemRaphaelBonus);
+        itemOrder.setText(getString(R.string.raphael_pizza) + ": " + itemRaphael);
+        itemBonus.setText(getString(R.string.raphael_pizza_bonus) +": " + itemRaphaelBonus);
     }
 }

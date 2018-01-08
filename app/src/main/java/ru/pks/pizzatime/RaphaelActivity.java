@@ -1,6 +1,7 @@
 package ru.pks.pizzatime;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -14,8 +15,8 @@ public class RaphaelActivity extends MainActivity {
     private static final String ITEM_BONUS_KEY = "item_bonus_key";
     private static final String TAG = "RaphaelActivity";
     private static final int TYPE = 1;
-    private int item;
-    protected static int itemBonusRaphael_1;
+    protected static int itemRaphaelBonus;
+    protected static int itemRaphael;
 
     private TextView itemView;
     private TextView itemBonusView;
@@ -32,14 +33,6 @@ public class RaphaelActivity extends MainActivity {
 
         Log.d(TAG, "onCreate Started");
 
-        if (savedInstanceState != null) {
-            item = savedInstanceState.getInt(ITEM_KEY);
-            itemBonusRaphael_1 = savedInstanceState.getInt(ITEM_BONUS_KEY);
-        } else {
-            item = 0;
-            itemBonusRaphael_1 = 0;
-        }
-
         initUI();
     }
 
@@ -55,6 +48,8 @@ public class RaphaelActivity extends MainActivity {
     protected void onResume() {
         super.onResume();
         //Final setting UI
+        readFromDB();
+        updateUI();
     }
 
     @Override
@@ -64,27 +59,21 @@ public class RaphaelActivity extends MainActivity {
         db.close();
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.d(TAG, "onSaveInstanceState Started");
-        outState.putInt(ITEM_KEY, item);
-        outState.putInt(ITEM_BONUS_KEY, itemBonusRaphael_1);
-    }
-
     private void itemPlus() {
-        item++;
-        Bonus.bonusItem(TYPE, item);
+        itemRaphael++;
+        Bonus.bonusItem(TYPE, itemRaphael);
         updateDB();
     }
 
     private void itemMinus() {
-        if (item > 0) {
-            item--;
-            Bonus.bonusItem(TYPE, item);
+        if (itemRaphael > 0) {
+            itemRaphael--;
+            Bonus.bonusItem(TYPE, itemRaphael);
+            updateDB();
         } else {
-            item = 0;
-            itemBonusRaphael_1 = 0;
+            itemRaphael = 0;
+            itemRaphaelBonus = 0;
+            updateDB();
         }
     }
 
@@ -126,21 +115,41 @@ public class RaphaelActivity extends MainActivity {
                 finish();
             }
         });
+    }
 
-        updateUI();
+    private void readFromDB() {
+        if (isConnectedWrite) {
+            Cursor cursor = db.query("PTIME",
+                    new String[]{"TYPE", "TYPE_BONUS", "ORDER_QUANTITY"},
+                    null, null, null, null, null);
+            if (cursor.moveToFirst()) {
+                itemRaphael = cursor.getInt(2);
+            }
+            if (cursor.moveToNext()) {
+                itemRaphaelBonus = cursor.getInt(2);
+            }
+        } else {
+            itemRaphael = 0;
+            itemRaphaelBonus = 0;
+        }
     }
 
     private void updateDB() {
         ContentValues pizzaValues = new ContentValues();
-        pizzaValues.put("ORDER_QUANTITY", item);
+        pizzaValues.put("ORDER_QUANTITY", itemRaphael);
         db.update("PTIME",
                 pizzaValues,
                 "_id = ?",
-                new String[] {"1"});
+                new String[]{"1"});
+        pizzaValues.put("ORDER_QUANTITY", itemRaphaelBonus);
+        db.update("PTIME",
+                pizzaValues,
+                "_id = ?",
+                new String[]{"2"});
     }
 
     private void updateUI() {
-        itemView.setText(getString(R.string.you) + item);
-        itemBonusView.setText(getString(R.string.bonus) + itemBonusRaphael_1);
+        itemView.setText(getString(R.string.you) + itemRaphael);
+        itemBonusView.setText(getString(R.string.bonus) + itemRaphaelBonus);
     }
 }

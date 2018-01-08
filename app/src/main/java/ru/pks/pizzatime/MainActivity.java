@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
        toastCenter.show();
    }
 
+    protected void toastCenterShort(String message) {
+        Toast toastCenter = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toastCenter.setGravity(Gravity.CENTER, 0, 0);
+        toastCenter.show();
+    }
+
    protected void connectDBRead() {
        try {
            pizzaDB = new PizzaTimeDatabaseHelper(this);

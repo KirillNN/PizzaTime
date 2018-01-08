@@ -46,6 +46,23 @@ public class WelcomeActivity extends MainActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateFromDB();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        db.close();
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState Started");
@@ -111,6 +128,19 @@ public class WelcomeActivity extends MainActivity {
 
         orderView = findViewById(R.id.orderView);
 
+        updateFromDB();
+
+//            DatabaseUtils.dumpCursorToString(cursor);
+        //TODO Read about dumpCursorToString
+
+        updateUI();
+    }
+
+    private void orderFull() {
+        orderFull = order + "\n";
+    }
+
+    private void updateFromDB() {
         connectDBRead();
         if (isConnectedRead) {
             Cursor cursor = db.query("PTIME",
@@ -129,20 +159,10 @@ public class WelcomeActivity extends MainActivity {
             textView2.setText(String.valueOf(test3));
 
             cursor.close();
-            db.close();
         }
-
-//            DatabaseUtils.dumpCursorToString(cursor);
-            //TODO Read about dumpCursorToString
-
-        updateUI();
     }
 
-    public void orderFull() {
-        orderFull = order + "\n";
-    }
-
-    public void updateUI() {
+    private void updateUI() {
 
         if (orderFull.equals(getString(R.string.empty))) {
             orderView.setText(order);

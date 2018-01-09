@@ -69,7 +69,7 @@ public class WelcomeActivity extends MainActivity {
         april.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inDevelop();
+                toastCenterLong(getString(R.string.in_develop));
             }
         });
 
@@ -77,7 +77,7 @@ public class WelcomeActivity extends MainActivity {
         splinter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inDevelop();
+                toastCenterLong(getString(R.string.in_develop));
             }
         });
 
@@ -85,7 +85,7 @@ public class WelcomeActivity extends MainActivity {
         casey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inDevelop();
+                toastCenterLong(getString(R.string.in_develop));
             }
         });
 

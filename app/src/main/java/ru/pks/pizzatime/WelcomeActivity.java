@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class WelcomeActivity extends MainActivity {
 
     private static final String TAG = "WelcomeActivity";
-    private static final String ORDER_FULL = "order_full";
 
     private String orderFull;
 

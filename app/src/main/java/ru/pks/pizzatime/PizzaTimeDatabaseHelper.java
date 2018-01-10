@@ -8,10 +8,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "pizza_time";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 7;
+    //Да, только контекст апликейшна брать, если актифити взять, то при повороте экрана,
+    // закрытии активити нулл поинтер словится и память будет течь
+    Context contextDB;
 
     PizzaTimeDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        contextDB = context;
+        //Правильно ли??
     }
 
     @Override
@@ -51,7 +56,8 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
                 + "TYPE_BONUS INTEGER, "
                 + "ORDER_QUANTITY INTEGER);");
 
-        insertPizza(db, "Raphael\'s PIZZA", "Pizza with secret ingredients.\n" +
+        //Правильно ли??
+        insertPizza(db, contextDB.getString(R.string.raphael_pizza), "Pizza with secret ingredients.\n" +
                         "As Rafael himself says, I just take everything that is in the fridge.",
                 "Take 3 and get 1 for free.", 1, 0, 0);
 

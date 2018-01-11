@@ -107,10 +107,6 @@ public class WelcomeActivity extends MainActivity {
         orderView = findViewById(R.id.orderView);
 
         updateFromDB();
-
-//            DatabaseUtils.dumpCursorToString(cursor);
-        //TODO Question about dumpCursorToString
-
         updateUI();
     }
 

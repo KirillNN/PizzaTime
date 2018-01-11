@@ -9,14 +9,11 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "pizza_time";
     private static final int DB_VERSION = 1;
-    //Да, только контекст апликейшна брать, если актифити взять, то при повороте экрана,
-    // закрытии активити нулл поинтер словится и память будет течь
     private Context contextDB;
 
     PizzaTimeDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         contextDB = context;
-        //Правильно ли??
     }
 
     @Override

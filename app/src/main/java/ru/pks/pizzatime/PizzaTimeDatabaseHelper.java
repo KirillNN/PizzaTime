@@ -59,7 +59,9 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
                 contextDB.getString(R.string.raphael_pizza_gift),
                 1, 0, 0);
 
-        insertPizza(db, "Raphael\'s PIZZA (Bonus)", "N/A", "N/A",
+        insertPizza(db, contextDB.getString(R.string.raphael_pizza_bonus),
+                contextDB.getString(R.string.n_a),
+                contextDB.getString(R.string.n_a),
                 1, 1, 0);
     }
 

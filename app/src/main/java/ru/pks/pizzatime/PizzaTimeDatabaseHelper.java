@@ -54,9 +54,10 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
                 + "ORDER_QUANTITY INTEGER);");
 
         //Правильно ли??
-        insertPizza(db, contextDB.getString(R.string.raphael_pizza), "Pizza with secret ingredients.\n" +
-                        "As Rafael himself says, I just take everything that is in the fridge.",
-                "Take 3 and get 1 for free.", 1, 0, 0);
+        insertPizza(db, contextDB.getString(R.string.raphael_pizza),
+                contextDB.getString(R.string.raphael_pizza_desc),
+                contextDB.getString(R.string.raphael_pizza_gift),
+                1, 0, 0);
 
         insertPizza(db, "Raphael\'s PIZZA (Bonus)", "N/A", "N/A",
                 1, 1, 0);

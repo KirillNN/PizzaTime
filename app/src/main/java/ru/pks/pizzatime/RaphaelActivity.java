@@ -80,7 +80,7 @@ public class RaphaelActivity extends MainActivity {
         gift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toastCenterLong(getString(R.string.gift_3_1));
+                toastCenterLong(getString(R.string.raphael_pizza_gift));
             }
         });
 

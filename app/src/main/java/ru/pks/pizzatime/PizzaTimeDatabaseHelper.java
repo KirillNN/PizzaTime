@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "pizza_time";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 10;
     private Context contextDB;
 
     PizzaTimeDatabaseHelper(Context context) {
@@ -18,7 +18,7 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        createMyDatabase(db,0, DB_VERSION);
+        createMyDatabase(db, 0, DB_VERSION);
     }
 
     @Override
@@ -53,7 +53,6 @@ class PizzaTimeDatabaseHelper extends SQLiteOpenHelper {
                 + "TYPE_BONUS INTEGER, "
                 + "ORDER_QUANTITY INTEGER);");
 
-        //Правильно ли??
         insertPizza(db, contextDB.getString(R.string.raphael_pizza),
                 contextDB.getString(R.string.raphael_pizza_desc),
                 contextDB.getString(R.string.raphael_pizza_gift),
